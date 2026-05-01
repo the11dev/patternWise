@@ -13,7 +13,10 @@ class Solution {
     public int countSubstrings(String s) {
         int c=0;
         for(int i=0;i<s.length();i++){
+            // includes single char too
             c+=expand(s,i,i);
+            // excludes single len palindromes i.e single char
+            // c+=Math.max(0,expand(s,i,i)-1);
             c+=expand(s,i,i+1);
         }
         return c;
